@@ -90,3 +90,6 @@
 - New sections in the library: Image (one picture in a plain frame, full column width) and Image Caption (optional, sits under the image). Images go in webpage/images/<page-name>/.
 - style.css: removed the page-type switches; added styles for Image and Image Caption. Kept the rule that hides anything marked hidden, which the tag filter needs.
 - Published pages: removed the empty sections that the switches used to hide, the switch instructions, and the page-type class on the body tag. Nothing visible on any page changed.
+
+**AUTHORSHIP NOTE:**
+- Removed the comma in "trust, but verify". It now reads "Either way, trust but verify." on the templates and every published page.
