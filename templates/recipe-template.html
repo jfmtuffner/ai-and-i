@@ -35,7 +35,8 @@
 
       <!--
         Recipe template: a starting point, not a locked form.
-        Default sections: Summary, Quick Facts, Sources.
+        Default sections: Summary, Quick Facts, Print, Image, Ingredients, Method, Sources.
+        Optional from the library: Tip (a boxed note, usually between Ingredients and Method).
         To add a section, copy it from templates/sections.html. To drop one, delete it.
         Before publishing: fill every section on the page, or delete it.
       -->
@@ -68,11 +69,51 @@
         </dl>
       </section>
 
-      <!-- Body: <h2> for main sections, <h3> for sub-sections. All headings in title case.
-           Cite sources in the text like this: (<a href="URL" rel="noreferrer">Author et al., 2023</a>). -->
-      <section>
-        <h2></h2>
-        <p></p>
+      <!-- Print: a button that opens the browser's print window, set to one US letter page.
+           The printout keeps the title, byline, authorship note, Quick Facts, Ingredients, Tip, and Method.
+           It leaves out the site menu and footer, the Summary, any Image, the Sources, and this button.
+           Keep the button text exactly as written. -->
+      <p class="print-page">
+        <button type="button" class="button secondary" onclick="window.print()">Print This Recipe</button>
+      </p>
+
+      <!-- Image: one picture in a plain frame, full column width. Place it anywhere in the body.
+           src: the file, kept in webpage/images/<page-name>/ (e.g. "../images/johnny-cake/pan.jpg").
+           alt: a short description of the picture for screen readers. Required; never leave it blank.
+           Recipes don't need a caption. -->
+      <figure class="image">
+        <img src="" alt="">
+      </figure>
+
+      <!-- Ingredients: one group per column, side by side on wide screens and on paper, stacked on phones.
+           Group name: a short title-case label, e.g. Dough, Filling, Glaze.
+           For a recipe with one list, keep one group and delete its <h3>.
+           Each line: the amount in the span, then the ingredient. Copy the <li> for more lines. -->
+      <section class="ingredients">
+        <h2>Ingredients</h2>
+        <div class="ingredient-groups">
+          <div class="ingredient-group">
+            <h3></h3>
+            <ul>
+              <li><span class="amount"></span> </li>
+            </ul>
+          </div>
+          <div class="ingredient-group">
+            <h3></h3>
+            <ul>
+              <li><span class="amount"></span> </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Method: numbered steps, in order. One action or a few short ones per step.
+           Copy the <li> for more steps. -->
+      <section class="method">
+        <h2>Method</h2>
+        <ol>
+          <li></li>
+        </ol>
       </section>
 
       <!-- Sources: author, year, linked title, publisher or institution. Every link uses rel="noreferrer".

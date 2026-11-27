@@ -373,6 +373,48 @@ legend {
   font-size: 0.9rem;
 }
 
+/* ---------- Recipe sections (section library: Print, Ingredients, Tip, Method) ---------- */
+.print-page { margin: 1.5rem 0; }
+.print-page button { font: inherit; font-weight: 600; cursor: pointer; }
+
+.ingredients,
+.method { margin: 2rem 0; }
+
+.ingredient-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.ingredient-group {
+  padding: 0.25rem 1.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.article .ingredient-group h3 { margin: 0.75rem 0 0.5rem; }
+.article .ingredient-group ul { margin: 0 0 0.5rem; padding: 0; list-style: none; }
+.article .ingredient-group li {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.ingredient-group .amount { color: var(--muted); }
+
+.tip {
+  margin: 2rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--fg);
+  background: var(--surface);
+}
+.article .tip h2 { margin: 0.25rem 0 0.35rem; font-size: 1.05rem; }
+.tip p { margin: 0 0 0.25rem; }
+
+.article .method ol { padding-left: 1.5rem; }
+.article .method li { margin-bottom: 0.6rem; padding-left: 0.25rem; }
+
 /* ---------- Hidden ---------- */
 /* Keeps anything marked hidden out of sight, even if a style above gives it a display setting.
    The tag filter (filter.js) relies on this to hide its bar and filtered-out items. */
@@ -489,3 +531,55 @@ legend {
 .sdk-sheet .sdk-bubble-num     { fill: #8a8a8a; }
 .sdk-sheet .sdk-strike         { stroke: #111111; }
 .sdk-sheet .sdk-answer         { fill: #111111; }
+
+/* ---------- Printing (pages with a Print block) ---------- */
+/* One US letter page, ink on paper in every theme.
+   Only pages that carry the Print block get this layout; other pages print as they are. */
+@page { size: letter; margin: 0.5in; }
+
+@media print {
+  :root,
+  [data-theme] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --border: #9a9a9a;
+    --fg: #000000;
+    --text: #111111;
+    --muted: #444444;
+  }
+
+  body:has(.print-page) { font-size: 10.5pt; line-height: 1.35; }
+
+  body:has(.print-page) .site-header,
+  body:has(.print-page) .site-footer,
+  body:has(.print-page) .print-page,
+  body:has(.print-page) .summary,
+  body:has(.print-page) .image,
+  body:has(.print-page) .sources { display: none !important; }
+
+  body:has(.print-page) main,
+  body:has(.print-page) .article { max-width: none; margin: 0; padding: 0; }
+
+  body:has(.print-page) .article h1 { margin-bottom: 0.2rem; font-size: 20pt; }
+  body:has(.print-page) .byline { margin-bottom: 0.3rem; }
+  body:has(.print-page) .authorship-note { margin: 0.4rem 0; padding: 0.2rem 0.6rem; font-size: 8.5pt; }
+  body:has(.print-page) .article h2 { margin: 0 0 0.4rem; font-size: 12.5pt; }
+  body:has(.print-page) .article h3 { font-size: 11pt; }
+
+  body:has(.print-page) .quick-facts { margin: 0.6rem 0; }
+  body:has(.print-page) .quick-facts h2 { display: none; }
+  body:has(.print-page) .quick-facts dl div { padding: 0.2rem 0.6rem; }
+
+  body:has(.print-page) .ingredients,
+  body:has(.print-page) .method,
+  body:has(.print-page) .tip { margin: 0.7rem 0; }
+
+  body:has(.print-page) .ingredient-groups { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  body:has(.print-page) .ingredient-group { padding: 0 0.75rem 0.25rem; break-inside: avoid; }
+  body:has(.print-page) .article .ingredient-group h3 { margin: 0.4rem 0 0.25rem; }
+  body:has(.print-page) .article .ingredient-group li { margin-bottom: 0.1rem; }
+
+  body:has(.print-page) .tip { padding: 0.35rem 0.75rem; break-inside: avoid; }
+  body:has(.print-page) .article .method li { margin-bottom: 0.25rem; break-inside: avoid; }
+}

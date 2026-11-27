@@ -7,7 +7,8 @@
 
   Page templates (templates/<type>-template.html) start with a default set of these.
   Order on a page: title, byline, authorship note, Short Abstract, Summary, Quick Facts,
-  Jump Link, body (Image blocks go anywhere in the body), The TLDR, Sources.
+  Print, Jump Link, body (Image, Ingredients, Tip, and Method blocks go in the body),
+  The TLDR, Sources.
 
   This file is a reference only. It lives outside webpage/, so it is never published.
 -->
@@ -37,6 +38,15 @@
         </dl>
       </section>
 
+<!-- ==================== Print ==================== -->
+      <!-- Print: a button that opens the browser's print window, set to one US letter page.
+           The printout keeps the title, byline, authorship note, Quick Facts, Ingredients, Tip, and Method.
+           It leaves out the site menu and footer, the Summary, any Image, the Sources, and this button.
+           Keep the button text exactly as written. -->
+      <p class="print-page">
+        <button type="button" class="button secondary" onclick="window.print()">Print This Recipe</button>
+      </p>
+
 <!-- ==================== Jump Link ==================== -->
       <!-- Jump Link: keep this wording exactly. Only include it on a page that has The TLDR. -->
       <p class="jump-link">Short on time? <a href="#the-tldr">Jump to The TLDR</a>.</p>
@@ -53,6 +63,47 @@
 <!-- ==================== Image Caption ==================== -->
       <!-- Image Caption: optional. Goes inside an Image block, directly after the img. One or two sentences. -->
         <figcaption></figcaption>
+
+<!-- ==================== Ingredients ==================== -->
+      <!-- Ingredients: one group per column, side by side on wide screens and on paper, stacked on phones.
+           Group name: a short title-case label, e.g. Dough, Filling, Glaze.
+           For a recipe with one list, keep one group and delete its <h3>.
+           Each line: the amount in the span, then the ingredient. Copy the <li> for more lines. -->
+      <section class="ingredients">
+        <h2>Ingredients</h2>
+        <div class="ingredient-groups">
+          <div class="ingredient-group">
+            <h3></h3>
+            <ul>
+              <li><span class="amount"></span> </li>
+            </ul>
+          </div>
+          <div class="ingredient-group">
+            <h3></h3>
+            <ul>
+              <li><span class="amount"></span> </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+<!-- ==================== Tip ==================== -->
+      <!-- Tip: optional. A boxed note for one thing the reader must not miss, e.g. "Keep It Cold".
+           Heading in title case, then one short paragraph. Place it in the body, usually between Ingredients and Method. -->
+      <aside class="tip">
+        <h2></h2>
+        <p></p>
+      </aside>
+
+<!-- ==================== Method ==================== -->
+      <!-- Method: numbered steps, in order. One action or a few short ones per step.
+           Copy the <li> for more steps. -->
+      <section class="method">
+        <h2>Method</h2>
+        <ol>
+          <li></li>
+        </ol>
+      </section>
 
 <!-- ==================== The TLDR ==================== -->
       <!-- The TLDR: 6 to 12 points, in the same order as the page. One short sentence each. -->

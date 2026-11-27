@@ -93,3 +93,8 @@
 
 **AUTHORSHIP NOTE:**
 - Removed the comma in "trust, but verify". It now reads "Either way, trust but verify." on the templates and every published page.
+
+**RECIPE SECTIONS:**
+- New sections in the library: Print (a "Print This Recipe" button), Ingredients (groups side by side, e.g. Dough and Filling), Tip (an optional boxed note), and Method (numbered steps).
+- recipe-template.html now starts with Summary, Quick Facts, Print, Image, Ingredients, Method, and Sources. Tip is optional and added from the library when needed.
+- style.css: added styles for the four new sections, plus a print layout for any page with the Print block. It prints on one US letter page in black on white in every theme, and leaves out the site menu and footer, the Summary, the image, the Sources, and the button.
