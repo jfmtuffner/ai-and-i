@@ -1,0 +1,489 @@
+/* ---------- Themes: each one is just a set of named colours ---------- */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #09090b;
+  --surface: #111113;
+  --border: #27272a;
+  --fg: #fafafa;       /* headings, buttons, links */
+  --text: #d4d4d8;     /* body text */
+  --muted: #a1a1aa;    /* secondary text */
+  --voice-a: #fafafa;
+  --voice-b: #8f8f98;
+}
+
+[data-theme="machine"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #050d08;
+  --border: #14341f;
+  --fg: #3dff8a;
+  --text: #b4bdb7;
+  --muted: #7f8a83;
+  --voice-a: #3dff8a;
+  --voice-b: #8d9791;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2e9d4;
+  --surface: #f8f1de;
+  --border: #d6c9aa;
+  --fg: #111111;
+  --text: #3f3b33;
+  --muted: #6b6455;
+  --voice-a: #111111;
+  --voice-b: #6b6455;
+}
+
+/* ---------- Shared sizes and fonts ---------- */
+:root {
+  --width: 56rem;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --mono: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+}
+
+/* ---------- Self-hosted fonts (SIL Open Font License, see fonts/OFL.txt) ---------- */
+@font-face {
+  font-family: "Merriweather";
+  src: url("fonts/merriweather.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("fonts/merriweather-italic.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1, h2 {
+  margin: 0;
+  color: var(--fg);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--fg); text-underline-offset: 3px; }
+
+a:focus-visible,
+.button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+.site-header { border-bottom: 1px solid var(--border); }
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--fg);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  min-width: 2.1rem;
+  padding: 0 0.55rem;
+  height: 2.1rem;
+  border-radius: 8px;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+nav { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+nav a {
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+nav a:hover { color: var(--fg); }
+
+/* Must stay below "nav a:hover" so the current page keeps its colours on hover */
+nav a[aria-current="page"] {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+/* ---------- Page body ---------- */
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hero { padding: 5rem 0 3.5rem; }
+
+.hero h1 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+}
+
+.hero .voice-a { color: var(--voice-a); }
+.hero .voice-b { color: var(--voice-b); font-style: italic; }
+
+.lead { max-width: 36rem; font-size: 1.2rem; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--fg);
+  border-radius: 8px;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { opacity: 0.88; }
+
+.button.secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--fg);
+}
+.button.secondary:hover { border-color: var(--fg); opacity: 1; }
+
+/* ---------- Sections ---------- */
+.block {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.block h2 { margin-bottom: 1rem; font-size: 1.8rem; }
+
+.article-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-list li {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.article-list a { font-weight: 600; }
+.article-list p { margin: 0.25rem 0 0; color: var(--muted); }
+
+.byline {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+/* ---------- Settings page ---------- */
+.settings, .page-intro { padding: 3.5rem 0 2.5rem; }
+.settings h1, .page-intro h1 { margin-bottom: 0.75rem; font-size: clamp(2rem, 6vw, 2.75rem); }
+
+fieldset { margin: 2rem 0 0; padding: 0; border: 0; }
+
+legend {
+  margin-bottom: 0.9rem;
+  padding: 0;
+  color: var(--fg);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  cursor: pointer;
+}
+.option:hover { border-color: var(--muted); }
+.option:has(input:checked) { border-color: var(--fg); }
+
+.option input {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--fg);
+}
+
+.swatch {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #888888;
+  border-radius: 8px;
+  font-weight: 700;
+}
+/* Fixed colours on purpose: each swatch previews its own theme */
+.swatch-dark    { background: #09090b; color: #fafafa; }
+.swatch-machine { background: #000000; color: #3dff8a; }
+.swatch-light   { background: #f2e9d4; color: #111111; }
+
+.option-text { display: flex; flex-direction: column; }
+.option-text strong { color: var(--fg); }
+.option-text span { color: var(--muted); font-size: 0.95rem; }
+
+.note { margin-top: 1.5rem; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: var(--width);
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Articles and other pages (webpage/articles/, essays/, recipes/, documents/) ---------- */
+.article { max-width: 42rem; padding: 3.5rem 0 2.5rem; }
+
+.article h1 {
+  margin-bottom: 0.75rem;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+}
+
+.article h2 { margin: 2.5rem 0 1rem; font-size: 1.6rem; }
+
+.article h3 {
+  margin: 1.75rem 0 0.75rem;
+  color: var(--fg);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.article ul { padding-left: 1.25rem; }
+.article li { margin-bottom: 0.5rem; }
+
+.authorship-note {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.jump-link { color: var(--muted); }
+
+.tldr {
+  margin-top: 2.5rem;
+  padding: 0.25rem 1.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.tldr h2 { margin-top: 1.25rem; }
+
+.sources { font-size: 0.95rem; }
+.sources li { color: var(--muted); }
+
+/* ---------- Page sections: Short Abstract, Summary, Quick Facts ---------- */
+.short-abstract,
+.summary,
+.quick-facts { margin: 1.5rem 0; }
+
+.article .short-abstract h2,
+.article .summary h2,
+.article .quick-facts h2 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+
+.quick-facts dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.quick-facts dl div {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.quick-facts dt { color: var(--muted); font-size: 0.85rem; }
+.quick-facts dd { margin: 0; color: var(--fg); font-weight: 600; }
+
+/* ---------- Switches: which sections each page type shows ---------- */
+/* Each line below switches one section off for one page type. Delete a line to switch it on. */
+.page-article .short-abstract { display: none; }
+.page-article .quick-facts    { display: none; }
+
+.page-essay .summary          { display: none; }
+.page-essay .quick-facts      { display: none; }
+
+.page-recipe .short-abstract  { display: none; }
+.page-recipe .jump-link       { display: none; }
+.page-recipe .tldr            { display: none; }
+
+.page-document .short-abstract { display: none; }
+.page-document .summary        { display: none; }
+.page-document .quick-facts    { display: none; }
+.page-document .jump-link      { display: none; }
+.page-document .tldr           { display: none; }
+
+/* Makes the per-page "hidden" switch win over any display setting above. */
+[hidden] { display: none !important; }
+
+/* ---------- List pages with a tag filter (articles, essays, recipes) ---------- */
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.tag-filter button {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.tag-filter button:hover { border-color: var(--muted); color: var(--fg); }
+
+.tag-filter button[aria-pressed="true"] {
+  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.tag-filter button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.item-tags span {
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* The "No ... published yet." line shows only while the list is empty. */
+.index-empty { display: none; color: var(--muted); }
+.filter-index:not(:has(.filter-list li)) .index-empty { display: block; }
+
+/* ---------- Homepage: section headings that are links ---------- */
+.section-link { text-decoration: none; }
+.section-link:hover { text-decoration: underline; }
+
+/* ---------- Documents: wide tables such as a draft bill's ---------- */
+.article table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.article th,
+.article td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article th { color: var(--fg); background: var(--surface); }
+
+/* ---------- Sudoku diagrams (inline SVG figures, e.g. articles/sudoku-for-beginners.html) ---------- */
+.sdk-figure { margin: 1.75rem 0; }
+.sdk-figure figcaption { margin-top: 0.6rem; color: var(--muted); font-size: 0.9rem; }
+
+.sdk { display: block; width: 100%; max-width: 24rem; height: auto; }
+.sdk-wide .sdk { max-width: 100%; }
+.sdk-small .sdk { max-width: 18rem; }
+.sdk-small .sdk-sheet { max-width: 26rem; }
+
+.sdk-bg     { fill: var(--surface); }
+.sdk-shade  { fill: var(--border); }
+.sdk-thin   { stroke: var(--muted); stroke-width: 0.75; stroke-opacity: 0.6; }
+.sdk-thick  { stroke: var(--fg); stroke-width: 2.5; stroke-linecap: square; }
+.sdk-arrow  { stroke: var(--fg); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.sdk-strike { stroke: var(--fg); stroke-width: 1.5; stroke-linecap: round; }
+.sdk-ring   { fill: none; stroke: var(--fg); stroke-width: 2; }
+
+.sdk text { text-anchor: middle; dominant-baseline: central; }
+.sdk-given  { fill: var(--fg); font-family: var(--sans); font-size: 20px; font-weight: 600; }
+.sdk-answer { fill: var(--fg); font-family: "Merriweather", Georgia, serif; font-size: 21px; font-style: italic; font-weight: 700; }
+.sdk-big    { font-size: 34px; }
+.sdk-pencil { fill: var(--muted); font-family: var(--sans); font-size: 11px; }
+.sdk-key    { fill: var(--fg); font-weight: 700; }
+
+.sdk-bubble        { fill: none; stroke: var(--muted); stroke-width: 1; }
+.sdk-bubble-filled { fill: var(--fg); stroke: var(--fg); }
+.sdk-bubble-num    { fill: var(--muted); font-family: var(--sans); font-size: 9px; }
+.sdk-on-fill       { fill: var(--bg); font-weight: 700; }
+
+/* ---------- Download links ---------- */
+.download-list li { margin-bottom: 0.75rem; }
+.download-list a { font-weight: 600; }
+.sdk-cell-edge { fill: none; stroke: var(--fg); stroke-width: 2.5; }
+.sdk-label     { fill: var(--muted); font-family: var(--sans); font-size: 11px; }
+/* Figure of the printed candidates sheet: always ink on paper, in every theme. */
+.sdk-sheet .sdk-bg             { fill: #ffffff; }
+.sdk-sheet .sdk-cell-edge      { stroke: #111111; }
+.sdk-sheet .sdk-bubble         { stroke: #8a8a8a; }
+.sdk-sheet .sdk-bubble-filled  { fill: #111111; stroke: #111111; }
+.sdk-sheet .sdk-bubble-num     { fill: #8a8a8a; }
+.sdk-sheet .sdk-strike         { stroke: #111111; }
+.sdk-sheet .sdk-answer         { fill: #111111; }

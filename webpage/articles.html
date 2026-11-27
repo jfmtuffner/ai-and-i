@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Articles | AI and I</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+  <script src="filter.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">AI &amp; I</span>
+      </a>
+      <nav aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="articles.html" aria-current="page">Articles</a>
+        <a href="essays.html">Essays</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="mission.html">Mission</a>
+        <a href="donate.html">Support</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-intro filter-index">
+      <h1>Articles</h1>
+      <!-- Intro: fill in, or delete this paragraph. -->
+      <p class="lead"></p>
+
+      <!-- Tag filter: filter.js builds the buttons from the tags below. It stays hidden if scripts are off. -->
+      <div class="tag-filter" hidden></div>
+
+      <!-- Shown only while the list below is empty. -->
+      <p class="index-empty">No articles published yet.</p>
+
+      <!--
+        List, newest first. Copy this block for each one:
+
+        <li data-tags="linux privacy">
+          <a href="articles/file-name.html">Title in Title Case</a>
+          <p class="byline">YYYY-MM-DD</p>
+          <p>One-line description.</p>
+        </li>
+
+        Tags: lowercase, separated by spaces. Join two-word tags with a hyphen,
+        e.g. computer-science. The filter shows it as "Computer Science".
+      -->
+      <ul class="article-list filter-list">
+        <li data-tags="puzzles">
+          <a href="articles/sudoku-for-beginners.html">Sudoku for Beginners: The Rules and Five Ways to Start</a>
+          <p class="byline">2026-11-24</p>
+          <p>The one rule behind every sudoku, five beginner techniques with pictures, and two free printable grids.</p>
+        </li>
+        <li data-tags="games policy">
+          <a href="articles/stop-killing-games-framework.html">A Stop Killing Games Framework: Five Public Questions</a>
+          <p class="byline">2026-11-23</p>
+          <p>A proposed Canadian framework that makes a digital game purchase permanent and portable.</p>
+        </li>
+        <li data-tags="games policy documents">
+          <a href="documents/open-letter-digital-game-ownership.html">An Open Letter to Canada's Members of Parliament on Digital Game Ownership</a>
+          <p class="byline">2026-11-23</p>
+          <p>A call on MPs to take up the framework, and on Canadians to write to their own MP.</p>
+        </li>
+        <li data-tags="games policy documents">
+          <a href="documents/digital-game-ownership-act.html">Digital Game Ownership Act: Proposal and Draft Bill</a>
+          <p class="byline">2026-11-23</p>
+          <p>The detailed framework, written as a mock-up of a federal bill.</p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 J. Tuffner. This site loads nothing from third parties: no trackers, no ad scripts, no outside fonts.</p>
+  </footer>
+
+</body>
+</html>
