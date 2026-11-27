@@ -355,25 +355,27 @@ legend {
 .quick-facts dt { color: var(--muted); font-size: 0.85rem; }
 .quick-facts dd { margin: 0; color: var(--fg); font-weight: 600; }
 
-/* ---------- Switches: which sections each page type shows ---------- */
-/* Each line below switches one section off for one page type. Delete a line to switch it on. */
-.page-article .short-abstract { display: none; }
-.page-article .quick-facts    { display: none; }
+/* ---------- Image (section library: Image and Image Caption) ---------- */
+/* One picture in a plain frame, full column width, like a newspaper photo.
+   The caption sits under the frame and lines up with its edges. */
+.image { margin: 2rem 0; }
 
-.page-essay .summary          { display: none; }
-.page-essay .quick-facts      { display: none; }
+.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+}
 
-.page-recipe .short-abstract  { display: none; }
-.page-recipe .jump-link       { display: none; }
-.page-recipe .tldr            { display: none; }
+.image figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
 
-.page-document .short-abstract { display: none; }
-.page-document .summary        { display: none; }
-.page-document .quick-facts    { display: none; }
-.page-document .jump-link      { display: none; }
-.page-document .tldr           { display: none; }
-
-/* Makes the per-page "hidden" switch win over any display setting above. */
+/* ---------- Hidden ---------- */
+/* Keeps anything marked hidden out of sight, even if a style above gives it a display setting.
+   The tag filter (filter.js) relies on this to hide its bar and filtered-out items. */
 [hidden] { display: none !important; }
 
 /* ---------- List pages with a tag filter (articles, essays, recipes) ---------- */

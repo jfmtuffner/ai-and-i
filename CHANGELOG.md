@@ -77,3 +77,16 @@
 
 **STYLES:**
 - style.css: styles for sudoku diagrams (inline SVG that follows the site theme) and for download lists.
+
+---
+
+## 2026-11-27
+
+**REPOSITORIES:**
+- The site moved to a fresh public repo (same name, same address). Content guidance (the AI and I Blueprint and STYLE.md) now lives in a separate private repo, ai-and-i-dev, and is no longer in this one.
+
+**TEMPLATES AND SECTIONS:**
+- Replaced the single template and its on/off switches with a section library and one template per page type. templates/sections.html holds the master copy of every optional section. templates/article-template.html, essay-template.html, recipe-template.html, and document-template.html each start with their type's default sections. To add a section to a page, copy it from the library; to drop one, delete it.
+- New sections in the library: Image (one picture in a plain frame, full column width) and Image Caption (optional, sits under the image). Images go in webpage/images/<page-name>/.
+- style.css: removed the page-type switches; added styles for Image and Image Caption. Kept the rule that hides anything marked hidden, which the tag filter needs.
+- Published pages: removed the empty sections that the switches used to hide, the switch instructions, and the page-type class on the body tag. Nothing visible on any page changed.

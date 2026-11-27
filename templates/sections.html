@@ -1,0 +1,74 @@
+<!--
+  AI and I: Section Library
+
+  The master copy of every optional page section. Each block is defined here once.
+  To add a section to a page, copy its block exactly as written and fill it in.
+  style.css formats each block by its class, so a copied block looks the same on every page.
+
+  Page templates (templates/<type>-template.html) start with a default set of these.
+  Order on a page: title, byline, authorship note, Short Abstract, Summary, Quick Facts,
+  Jump Link, body (Image blocks go anywhere in the body), The TLDR, Sources.
+
+  This file is a reference only. It lives outside webpage/, so it is never published.
+-->
+
+<!-- ==================== Short Abstract ==================== -->
+      <!-- Short Abstract: one paragraph giving the thesis and what the page covers. -->
+      <section class="short-abstract">
+        <h2>Short Abstract</h2>
+        <p></p>
+      </section>
+
+<!-- ==================== Summary ==================== -->
+      <!-- Summary: one short paragraph. -->
+      <section class="summary">
+        <h2>Summary</h2>
+        <p></p>
+      </section>
+
+<!-- ==================== Quick Facts ==================== -->
+      <!-- Quick Facts: fill in each value, or delete rows that don't apply. -->
+      <section class="quick-facts">
+        <h2>Quick Facts</h2>
+        <dl>
+          <div><dt>Oven</dt><dd></dd></div>
+          <div><dt>Time</dt><dd></dd></div>
+          <div><dt>Pan</dt><dd></dd></div>
+        </dl>
+      </section>
+
+<!-- ==================== Jump Link ==================== -->
+      <!-- Jump Link: keep this wording exactly. Only include it on a page that has The TLDR. -->
+      <p class="jump-link">Short on time? <a href="#the-tldr">Jump to The TLDR</a>.</p>
+
+<!-- ==================== Image ==================== -->
+      <!-- Image: one picture in a plain frame, full column width. Place it anywhere in the body.
+           src: the file, kept in webpage/images/<page-name>/ (e.g. "../images/johnny-cake/pan.jpg").
+           alt: a short description of the picture for screen readers. Required; never leave it blank.
+           To add a caption, paste the Image Caption block inside the figure, directly after the img. -->
+      <figure class="image">
+        <img src="" alt="">
+      </figure>
+
+<!-- ==================== Image Caption ==================== -->
+      <!-- Image Caption: optional. Goes inside an Image block, directly after the img. One or two sentences. -->
+        <figcaption></figcaption>
+
+<!-- ==================== The TLDR ==================== -->
+      <!-- The TLDR: 6 to 12 points, in the same order as the page. One short sentence each. -->
+      <section class="tldr" id="the-tldr">
+        <h2>The TLDR</h2>
+        <ul>
+          <li></li>
+        </ul>
+      </section>
+
+<!-- ==================== Sources ==================== -->
+      <!-- Sources: author, year, linked title, publisher or institution. Every link uses rel="noreferrer".
+           Format: Author, A. (YYYY). <a href="URL" rel="noreferrer">Title of the Source</a>. Publisher. -->
+      <section class="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li></li>
+        </ul>
+      </section>
